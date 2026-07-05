@@ -32,7 +32,7 @@ export function Navbar() {
   return (
     <header 
       className={cn(
-        "top-0 z-40 w-full transition-all duration-300",
+        "top-0 z-40 w-full transition-all duration-300 text-ink",
         isHome ? "fixed" : "sticky",
         isTransparent 
           ? "bg-transparent border-transparent dark" 
@@ -40,7 +40,7 @@ export function Navbar() {
       )}
     >
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold">
+        <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold text-ink">
           <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-primary-foreground">
             <Orbit className="h-4.5 w-4.5" />
           </span>
