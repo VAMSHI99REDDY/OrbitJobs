@@ -36,12 +36,12 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-primary-dark text-white">
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
         style={{ backgroundImage: "url('/image/background.png')" }}
         aria-hidden
       />
       <div
-        className="absolute inset-0 opacity-[0.07]"
+        className="absolute inset-0 opacity-[0.05]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
@@ -49,10 +49,10 @@ export function Hero() {
         }}
         aria-hidden
       />
-      <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-primary/30 blur-3xl" aria-hidden />
-      <div className="absolute -bottom-32 -left-16 h-96 w-96 rounded-full bg-amber/20 blur-3xl" aria-hidden />
+      <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-primary/20 blur-3xl" aria-hidden />
+      <div className="absolute -bottom-32 -left-16 h-96 w-96 rounded-full bg-amber/10 blur-3xl" aria-hidden />
 
-      <div className="container relative py-20 md:py-28">
+      <div className="container relative pt-32 pb-20 md:pt-40 md:pb-28">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

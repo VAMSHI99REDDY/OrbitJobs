@@ -18,9 +18,27 @@ const links = [
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isHome = pathname === "/";
+  const isTransparent = isHome && !scrolled;
 
   return (
-    <header className="sticky top-0 z-40 glass border-b border-line">
+    <header 
+      className={cn(
+        "top-0 z-40 w-full transition-all duration-300",
+        isHome ? "fixed" : "sticky",
+        isTransparent 
+          ? "bg-transparent border-transparent dark" 
+          : "glass border-b border-line"
+      )}
+    >
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold">
           <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-primary-foreground">
