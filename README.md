@@ -4,7 +4,7 @@ A modern, production-ready job board web application built with Next.js 15, Reac
 and TypeScript. OrbitJobs demonstrates clean architecture, polished UI/UX, accessibility,
 and deployment readiness — built as a portfolio-quality showcase project.
 
-**Live demo:** _add your Vercel URL here after deploying_
+**Live demo:** [https://job-board-nine-rust.vercel.app](https://job-board-nine-rust.vercel.app)
 
 ---
 
