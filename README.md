@@ -1,76 +1,61 @@
-# OrbitJobs — AI-Powered Job Board
+# OrbitJobs
 
-A modern, production-ready job board web application built with Next.js 15, React 19,
-and TypeScript. OrbitJobs demonstrates clean architecture, polished UI/UX, accessibility,
-and deployment readiness — built as a portfolio-quality showcase project.
+## Project Overview
 
-**Live demo:** [https://job-board-nine-rust.vercel.app](https://job-board-nine-rust.vercel.app)
+OrbitJobs is a modern, production-ready job board web application built to demonstrate clean architecture, polished user interfaces, and robust deployment pipelines. Developed with Next.js 15, React 19, and TypeScript, the application serves as a comprehensive showcase of modern frontend engineering practices. It features real-time search, multi-facet filtering, responsive design, and seamless integration with continuous deployment workflows.
+
+**Live Demo:** [https://job-board-nine-rust.vercel.app](https://job-board-nine-rust.vercel.app)  
+**GitHub Repository:** [https://github.com/VAMSHI99REDDY/OrbitJobs](https://github.com/VAMSHI99REDDY/OrbitJobs)
 
 ---
 
 ## Screenshots
 
-> Add screenshots here after running the app locally.
-
 | Home | Browse Jobs | Job Details |
-| --- | --- | --- |
-| `docs/screenshot-home.png` | `docs/screenshot-browse.png` | `docs/screenshot-details.png` |
+| :---: | :---: | :---: |
+| ![Home](docs/screenshot-home.png) | ![Browse Jobs](docs/screenshot-browse.png) | ![Job Details](docs/screenshot-details.png) |
 
 ---
 
 ## Features
 
-- **Home** — hero with animated role search, live stats ticker, featured jobs,
-  popular categories, top companies, testimonials, and a call-to-action.
-- **Browse Jobs** — real-time search, multi-facet filtering (job type, experience,
-  location, salary range, work mode, company), and sorting (latest, highest salary,
-  most relevant), with loading skeletons and empty states.
-- **Job Details** — full role breakdown (responsibilities, requirements, skills,
-  benefits, company info), apply/save/share actions, and similar-job suggestions.
-- **Saved Jobs** — bookmark and remove jobs, persisted to `localStorage`.
-- **Post a Job** — validated submission form, stored to `localStorage`.
-- **About** — mission, vision, feature highlights, team, and contact form.
-- **Dark / light mode** via `next-themes`.
-- Responsive, mobile-first layout with a distinctive visual identity (see Design
-  Notes below).
-- Accessible: visible focus states, semantic landmarks, `prefers-reduced-motion`
-  support, labeled form controls.
-- SEO metadata per route via the Next.js Metadata API.
+- **Dynamic Homepage:** Includes a hero section with an animated role search, a live market-stats ticker, featured job listings, popular categories, top hiring companies, and user testimonials.
+- **Robust Job Discovery:** Offers real-time search and multi-facet filtering by job type, experience level, location, salary range, work mode, and company. Includes sorting capabilities (latest, highest salary, most relevant) with optimized loading states.
+- **Comprehensive Job Details:** Provides a full breakdown of the role including responsibilities, requirements, skills, benefits, and company information. Supports interactive actions to apply, save, and share jobs, alongside intelligent similar-job suggestions.
+- **Saved Jobs Management:** Allows users to bookmark and remove job listings, with data persisted locally via `localStorage`.
+- **Job Submission Workflow:** Features a validated "Post a Job" submission form, temporarily storing submissions to `localStorage`.
+- **Company Information:** Features an "About" page detailing the platform's mission, vision, feature highlights, team overview, and a contact form.
+- **Theming:** Full support for dark and light modes using `next-themes`.
+
+---
+
+## Additional Highlights
+
+- **Responsive Design:** Engineered with a mobile-first approach, ensuring a seamless user experience across all device sizes.
+- **Accessibility:** Built with semantic HTML landmarks, visible focus states, `prefers-reduced-motion` support, and properly labeled form controls to meet web accessibility standards.
+- **SEO Optimization:** Implements dynamic metadata generation per route utilizing the Next.js Metadata API for improved search engine visibility.
+- **Reusable Components:** Utilizes a highly modular component architecture with Radix primitives and Tailwind CSS for scalable and maintainable UI development.
+- **Performance:** Leverages Next.js App Router for optimized static generation and server-side rendering, ensuring fast initial page loads and smooth client-side transitions.
+- **CI/CD Pipeline:** Enforces code quality and automated deployment through strict GitHub Actions and Vercel integrations.
 
 ---
 
 ## Tech Stack
 
-- [Next.js 15](https://nextjs.org/) (App Router)
-- [React 19](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [shadcn/ui](https://ui.shadcn.com/)-style components (Radix primitives + CVA)
-- [Lucide React](https://lucide.dev/) icons
-- [Framer Motion](https://www.framer.com/motion/) animations
-- [next-themes](https://github.com/pacocoursey/next-themes) for dark mode
-- ESLint + Prettier (with `prettier-plugin-tailwindcss`)
-
----
-
-## Design Notes
-
-The visual identity is deliberately distinct from generic AI-generated defaults:
-
-- **Palette** — electric violet primary (`#4F3DF5`), deep navy hero background
-  (`#12153D`), warm amber accent for salary/CTA emphasis (`#FFB648`), on a cool
-  off-white surface.
-- **Type** — Space Grotesk for display/headings, Inter for body copy, IBM Plex
-  Mono for salary figures and the market-stats ticker.
-- **Signature element** — job cards carry a colored left accent bar keyed to
-  work mode (Remote / Hybrid / Onsite), and the hero features a cycling,
-  animated role search that previews real listings on the site.
+- **Framework:** Next.js 15 (App Router), React 19
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **UI Components:** shadcn/ui (Radix primitives + CVA)
+- **Icons:** Lucide React
+- **Animations:** Framer Motion
+- **Theming:** next-themes
+- **Tooling:** ESLint, Prettier (with `prettier-plugin-tailwindcss`)
 
 ---
 
 ## Folder Structure
 
-```
+```text
 job-board/
 ├── app/                     # App Router pages & layouts
 │   ├── about/
@@ -78,110 +63,122 @@ job-board/
 │   ├── jobs/[id]/
 │   ├── post-job/
 │   ├── saved-jobs/
-│   ├── layout.tsx
-│   ├── page.tsx             # Home
+│   ├── layout.tsx           # Root layout
+│   ├── page.tsx             # Homepage
 │   ├── error.tsx
 │   ├── not-found.tsx
-│   └── globals.css
+│   └── globals.css          # Global styles & variables
 ├── components/
-│   ├── ui/                  # shadcn/ui-style primitives (button, card, ...)
-│   ├── layout/               # Navbar, Footer
-│   ├── home/                 # Hero, Stats, FeaturedJobs, Categories, ...
-│   └── jobs/                 # JobCard, JobFiltersPanel, JobSort, ...
+│   ├── ui/                  # Reusable UI primitives (buttons, cards, etc.)
+│   ├── layout/              # Navbar, Footer
+│   ├── home/                # Homepage-specific components
+│   └── jobs/                # Job listing components (cards, filters, etc.)
 ├── data/
-│   └── jobs.ts               # 25 sample job listings + companies/testimonials
+│   └── jobs.ts              # Sample dataset of job listings and companies
 ├── hooks/
-│   ├── use-saved-jobs.ts     # localStorage-backed bookmarks
-│   └── use-toast.ts
+│   ├── use-saved-jobs.ts    # Custom hook for localStorage persistence
+│   └── use-toast.ts         # Custom hook for notifications
 ├── lib/
-│   └── utils.ts               # cn(), formatSalary(), timeAgo(), slugify()
+│   └── utils.ts             # Shared utilities (formatting, styling, etc.)
 ├── types/
-│   └── job.ts
-├── public/
-├── .github/workflows/ci.yml   # Lint + build on push/PR
+│   └── job.ts               # TypeScript interfaces and types
+├── public/                  # Static assets and images
+├── .github/workflows/       # GitHub Actions CI/CD configurations
 └── README.md
 ```
 
 ---
 
-## Installation
+## Installation & Setup
 
-```bash
-git clone <your-repo-url>
-cd job-board
-npm install
-```
+### Prerequisites
 
-## Running Locally
+- Node.js (version 18 or higher recommended)
+- npm or another package manager
 
-```bash
-npm run dev
-```
+### Local Development
 
-Open [http://localhost:3000](http://localhost:3000).
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/VAMSHI99REDDY/OrbitJobs.git
+   cd job-board
+   ```
 
-## Build Commands
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run lint     # ESLint
-npm run build    # Production build
-npm run start    # Serve the production build locally
-```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Build Commands
+
+- `npm run lint` — Run ESLint to analyze code quality.
+- `npm run build` — Create an optimized production build.
+- `npm run start` — Serve the production build locally.
 
 ---
 
 ## Deployment
 
-This project is pre-configured for zero-config deployment on
-[Vercel](https://vercel.com/):
+The application is configured for zero-downtime automated deployments via Vercel.
 
-1. Push this repository to GitHub.
-2. Import the repository in Vercel.
-3. Vercel auto-detects Next.js — no environment variables or build settings
-   are required.
-
----
-
-## GitHub Actions CI/CD
-
-`.github/workflows/ci.yml` runs on every push and pull request to `main`:
-
-1. Checks out the repository
-2. Installs dependencies (`npm ci`)
-3. Runs ESLint (`npm run lint`)
-4. Builds the project (`npm run build`)
-
-The workflow fails the run if any step fails, so broken code can't merge silently.
+The deployment workflow is fully automated through GitHub integration:
+1. Pushing code to the `main` branch on GitHub automatically triggers a new build on Vercel.
+2. Vercel automatically detects the Next.js framework, installs dependencies, and executes the production build process.
+3. Upon a successful build, Vercel deploys the application and updates the live production URL.
 
 ---
 
-## AI Tools Used
+## Continuous Integration / Continuous Deployment (CI/CD)
 
-This project was scaffolded and implemented with the assistance of **Claude**
-(Anthropic), used for:
+The project enforces code quality and structural integrity using GitHub Actions. The `.github/workflows/ci.yml` pipeline runs automatically on every push and pull request to the `main` branch. 
 
-- Architecture and folder-structure planning
-- Component implementation (UI primitives, page composition, hooks)
-- Sample data generation for the 25 job listings
-- Design-token planning (palette, type, layout) and accessibility review
-- Documentation (this README)
+The pipeline performs the following steps:
+1. Checks out the latest repository code.
+2. Installs project dependencies using a clean installation (`npm ci`).
+3. Executes static code analysis (`npm run lint`) to catch formatting and syntax errors.
+4. Compiles a production build (`npm run build`) to ensure type safety and build validity.
 
-All code was reviewed for correctness and consistency as part of the build.
+This workflow guarantees that broken code or type errors cannot be merged silently into the main branch.
+
+---
+
+## AI Assistance
+
+Artificial Intelligence tools were utilized responsibly during the development of this project to enhance productivity. AI was leveraged for:
+- Initial architecture and folder-structure planning.
+- Structuring and drafting project documentation.
+- Assisting with the implementation of UI components and React hooks.
+- Generating realistic sample data for job listings and company profiles.
+
+All AI-generated code and content were rigorously reviewed, refactored, and validated by the developer to ensure correctness, consistency, and adherence to industry best practices.
 
 ---
 
 ## Future Improvements
 
-- Replace `localStorage` persistence (saved jobs, job submissions) with a real
-  backend (e.g. Supabase/Postgres) and authentication.
-- Add real company/job data via an API integration.
-- Add applicant tracking for the Post a Job flow (dashboard for posted roles).
-- Add end-to-end tests (Playwright) and unit tests (Vitest/React Testing Library).
-- Add pagination or infinite scroll to Browse Jobs for larger datasets.
-- Internationalization (i18n) for non-English markets.
+- Migrate `localStorage` persistence (for saved jobs and job submissions) to a secure backend database (e.g., PostgreSQL or Supabase) paired with user authentication.
+- Integrate a live API to fetch real-world company and job data dynamically.
+- Implement an applicant tracking dashboard for users to manage their submitted job postings.
+- Introduce automated testing, including unit tests (Vitest/React Testing Library) and end-to-end tests (Playwright).
+- Implement pagination or infinite scrolling within the "Browse Jobs" view to handle larger datasets efficiently.
 
 ---
 
 ## License
 
-MIT — free to use for learning, portfolio, or assessment purposes.
+This project is licensed under the MIT License — free to use for learning, portfolio development, or assessment purposes.
+
+---
+
+## Author
+
+**Vamshi Reddy**  
+Frontend Engineer  
+[GitHub Profile](https://github.com/VAMSHI99REDDY)
