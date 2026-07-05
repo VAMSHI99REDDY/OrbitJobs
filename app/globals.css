@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 250 40% 98%;
+    --surface: 0 0% 100%;
+    --ink: 240 35% 12%;
+    --muted: 240 12% 45%;
+    --line: 240 25% 91%;
+    --primary: 252 88% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 244 55% 15%;
+    --amber: 38 100% 63%;
+    --amber-foreground: 244 55% 15%;
+    --success: 152 62% 39%;
+    --danger: 6 78% 57%;
+  }
+
+  .dark {
+    --bg: 244 45% 8%;
+    --surface: 244 38% 12%;
+    --ink: 240 30% 96%;
+    --muted: 240 12% 68%;
+    --line: 244 25% 20%;
+    --primary: 252 92% 68%;
+    --primary-foreground: 244 55% 10%;
+    --primary-dark: 244 60% 6%;
+    --amber: 38 100% 63%;
+    --amber-foreground: 244 55% 10%;
+    --success: 152 55% 48%;
+    --danger: 6 85% 64%;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  body {
+    @apply text-ink font-body antialiased;
+    background-image: url("/image/background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--surface) / 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
